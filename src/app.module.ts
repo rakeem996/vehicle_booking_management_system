@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+// import { AppController } from './app.controller';
+// import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Vehicle } from './database/vehicle/Vehicle.entity';
-// import { Vehicle } from './vehicle.entity';
+// import entities from './database/car';
+import { CarTypesModule } from './database/car/CarType.module';
+
 
 @Module({
   imports: [
@@ -23,9 +24,12 @@ import { Vehicle } from './database/vehicle/Vehicle.entity';
       }),
       inject: [ConfigService],
     }),
+    CarTypesModule,
+    // bikeTypeModule,
+    // VehicleTypeModule
     //modules of each type here (will be doing later)---------------------
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  // controllers: [AppController],
+  // providers: [AppService],
 })
 export class AppModule {}

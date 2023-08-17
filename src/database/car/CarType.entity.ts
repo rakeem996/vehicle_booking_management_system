@@ -4,7 +4,7 @@ import { Vehicle } from '../vehicle/Vehicle.entity';
 @Entity()
 export class CarType {
   @PrimaryGeneratedColumn()
-  car_type_id: number;
+  carTypeId: number;
 
   @Column()
   name: string;
