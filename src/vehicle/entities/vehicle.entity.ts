@@ -1,3 +1,4 @@
+import { Booking } from 'src/booking/entities/booking.entity';
 import { User } from 'src/user/entities/user.entity';
 import {
   Column,
@@ -5,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 
 @Entity()
@@ -21,7 +23,10 @@ export class Vehicle {
   @Column()
   vehicleModel: string;
 
-  @ManyToOne(() => User)
+  @OneToMany(() => Booking, (booking) => booking.vehicle)
+  bookings: Booking[];
+
+  @ManyToOne(() => User, (user) => user.vehicles)
   @JoinColumn({ name: 'user_id' })
   user: User;
 }

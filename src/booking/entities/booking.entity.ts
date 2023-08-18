@@ -15,7 +15,7 @@ export class Booking {
   @Column()
   bookingDate: Date;
 
-  @ManyToOne(() => Vehicle)
+  @ManyToOne(() => Vehicle, (vehicle) => vehicle.bookings)
   @JoinColumn({ name: 'vehicle_id' })
   vehicle: Vehicle;
 }
