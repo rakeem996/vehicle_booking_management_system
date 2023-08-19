@@ -11,6 +11,7 @@ import typeorm from './config/typeorm';
     ConfigModule.forRoot({
       isGlobal: true,
       load: [typeorm],
+      // envFilePath: '.env',
     }),
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
@@ -22,4 +23,5 @@ import typeorm from './config/typeorm';
     BookingModule,
   ],
 })
+
 export class AppModule {}
